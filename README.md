@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Sin Art Universe 🌟
 
 > **Next-Generation Decentralized AI-Driven Metaverse Tattoo Ecosystem**
@@ -312,3 +313,6 @@ Proprietary - Sin Art Universe © 2026
 ---
 
 *Building the future of human expression through AI, blockchain, metaverse technology, and cultural preservation.*
+=======
+# sinart
+>>>>>>> origin/main
