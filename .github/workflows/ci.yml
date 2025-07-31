@@ -4,22 +4,84 @@ on:
     branches: [main, phase-*]
   pull_request:
     branches: [main]
+
 jobs:
-  build:
+  lint:
     runs-on: windows-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version: '20.12.0'
+          node-version: '24.4.0'
           cache: 'yarn'
       - name: Install Dependencies
         run: yarn install --frozen-lockfile
       - name: Lint
-        run: yarn nx lint
+        run: yarn lint
+
+  test:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24.4.0'
+          cache: 'yarn'
+      - name: Install Dependencies
+        run: yarn install --frozen-lockfile
       - name: Test
-        run: yarn nx test
+        run: yarn test
+
+  build:
+    runs-on: windows-latest
+    needs: [lint, test]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24.4.0'
+          cache: 'yarn'
+      - name: Install Dependencies
+        run: yarn install --frozen-lockfile
       - name: Build
-        run: yarn nx build 
+        run: yarn build
+
+  ipfs:
+    runs-on: windows-latest
+    needs: [build]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24.4.0'
+          cache: 'yarn'
+      - name: Install Dependencies
+        run: yarn install --frozen-lockfile
+      - name: Publish to Pinata IPFS
+        env:
+          PINATA_API_KEY: ${{ secrets.PINATA_API_KEY }}
+        run: yarn ipfs:publish
+
+  quantum-bci-check:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Rust
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          toolchain: '1.88.0'
+      - name: Check Rust
+        run: cargo --version
+      - name: Setup Docker
+        uses: docker/setup-docker@v3
+      - name: Check Docker
+        run: docker run hello-world 

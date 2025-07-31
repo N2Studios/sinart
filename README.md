@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Sin Art Universe 🌟
 
 > **Next-Generation Decentralized AI-Driven Metaverse Tattoo Ecosystem**
@@ -126,6 +125,13 @@ A revolutionary platform combining marketplace, community hub, fintech suite, AI
 - **Therapeutic AI**: Mental health and wellness design generation
 - **Accessibility**: Designs for various skin conditions
 
+### IPFS & Decentralized Storage
+- **Primary Provider**: Pinata (dedicated IPFS service with automatic pinning)
+- **Fallback Providers**: Web3.Storage (5GB free), NFT.Storage (5GB free)
+- **Development**: Local IPFS node for fast development
+- **Retrieval**: Multi-gateway redundancy (ipfs.io, gateway.pinata.cloud, cloudflare-ipfs.com)
+- **Cost**: 80-100% savings vs Infura ($0/month vs $25/month)
+
 ## 💰 Revolutionary Monetization Strategy
 
 ### Subscriptions
@@ -153,6 +159,7 @@ A revolutionary platform combining marketplace, community hub, fintech suite, AI
 - Monorepo setup, CI/CD, landing page, auth, TattooVerse design system
 - Quantum computing integration setup
 - BCI development environment
+- IPFS multi-provider setup (Pinata, Web3.Storage, NFT.Storage)
 
 **Milestone 2: Core Frontend (Phases 31–60)**
 - Marketplace, gallery, forum components
@@ -227,7 +234,7 @@ A revolutionary platform combining marketplace, community hub, fintech suite, AI
 ├── /docs/specs (Markdown files)
 ├── /tests (Vitest, Cypress XR)
 ├── /.github/workflows (CI/CD)
-├── /ipfs (IPFS config)
+├── /ipfs (IPFS multi-provider config)
 ├── /quantum (Quantum computing config)
 ```
 
@@ -261,6 +268,22 @@ A revolutionary platform combining marketplace, community hub, fintech suite, AI
 - Rust (for Tauri and Solana contracts)
 - Quantum computing access (IBM Quantum, Google Cirq)
 - BCI development kit (OpenBCI)
+
+### IPFS Setup
+```bash
+# Get free API keys
+# Pinata: https://app.pinata.cloud/
+# Web3.Storage: https://web3.storage/
+# NFT.Storage: https://nft.storage/
+
+# Set environment variables
+export PINATA_JWT_TOKEN="your_pinata_jwt_token"
+export WEB3_STORAGE_TOKEN="your_web3_storage_token"
+export NFT_STORAGE_TOKEN="your_nft_storage_token"
+
+# Test IPFS integration
+npm run ipfs:publish
+```
 
 ### Development Commands
 ```bash
@@ -313,6 +336,3 @@ Proprietary - Sin Art Universe © 2026
 ---
 
 *Building the future of human expression through AI, blockchain, metaverse technology, and cultural preservation.*
-=======
-# sinart
->>>>>>> origin/main

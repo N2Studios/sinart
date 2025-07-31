@@ -4,14 +4,14 @@ import dotenv from 'dotenv';
 // Load environment variables
 dotenv.config();
 
-// Pinata IPFS Configuration (Phase 2 - Updated)
+// Pinata IPFS Configuration (Recommended)
 export const ipfs = create({
   host: 'api.pinata.cloud',
   port: 443,
   protocol: 'https',
   apiPath: '/pinning',
   headers: {
-    'Authorization': `Bearer ${process.env.PINATA_API_KEY}`,
+    'Authorization': `Bearer ${process.env.PINATA_JWT_TOKEN}`,
     'Content-Type': 'application/json'
   }
 });
