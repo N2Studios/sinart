@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Sin Art Universe 🌟
 
 > **Next-Generation Decentralized AI-Driven Metaverse Tattoo Ecosystem**
