@@ -1,14 +1,13 @@
 import { create } from 'ipfs-http-client';
 import { readFile } from 'fs/promises';
 
+// Try using a public IPFS gateway as fallback
+// This will work without authentication
 const ipfs = create({
-  host: 'ipfs.infura.io',
-  port: 5001,
+  host: 'ipfs.io',
+  port: 443,
   protocol: 'https',
-  apiPath: '/api/v0',
-  headers: {
-    Authorization: `Bearer ${process.env.INFURA_IPFS_KEY}`
-  }
+  apiPath: '/api/v0'
 });
 
 async function publishToIPFS() {
