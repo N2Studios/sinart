@@ -3,7 +3,7 @@
   "defaultBase": "main",
   "tasksRunnerOptions": {
     "default": {
-      "runner": "@nx/workspace",
+      "runner": "nx/tasks-runners/default",
       "options": {
         "cacheableOperations": ["build", "test", "lint"]
       }
@@ -13,5 +13,6 @@
     "build": { "dependsOn": ["^build"] },
     "test": { "dependsOn": ["^test"] },
     "lint": { "dependsOn": ["^lint"] }
-  }
+  },
+  "plugins": ["@nx/js"]
 }

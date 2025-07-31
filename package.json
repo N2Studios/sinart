@@ -9,15 +9,18 @@
     "services/*"
   ],
   "scripts": {
-    "test": "vitest run",
+    "nx": "nx",
+    "test": "nx run-many -t test",
     "test:watch": "vitest",
-    "lint": "eslint .",
-    "build": "echo 'Build command placeholder'",
+    "lint": "nx run-many -t lint",
+    "build": "nx run-many -t build",
     "ipfs:publish": "node scripts/publish-to-ipfs.js"
   },
   "license": "Proprietary - Sin Art Universe © 2026",
   "devDependencies": {
     "@nx/eslint": "19.0.0",
+    "@nx/js": "19.0.0",
+    "@nx/workspace": "19.0.0",
     "@typescript-eslint/eslint-plugin": "7.0.0",
     "@typescript-eslint/parser": "7.0.0",
     "eslint": "8.57.0",
