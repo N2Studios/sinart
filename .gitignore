@@ -1,0 +1,9 @@
+node_modules/
+dist/
+.cache/
+.nx/
+*.log
+.env
+.cursor/ 
+
+.nx/cache

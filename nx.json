@@ -1,0 +1,17 @@
+{
+  "$schema": "./node_modules/nx/schemas/nx-schema.json",
+  "defaultBase": "main",
+  "tasksRunnerOptions": {
+    "default": {
+      "runner": "@nx/workspace",
+      "options": {
+        "cacheableOperations": ["build", "test", "lint"]
+      }
+    }
+  },
+  "targetDefaults": {
+    "build": { "dependsOn": ["^build"] },
+    "test": { "dependsOn": ["^test"] },
+    "lint": { "dependsOn": ["^lint"] }
+  }
+}

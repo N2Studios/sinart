@@ -1,0 +1,25 @@
+name: CI
+on:
+  push:
+    branches: [main, phase-*]
+  pull_request:
+    branches: [main]
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20.12.0'
+          cache: 'yarn'
+      - name: Install Dependencies
+        run: yarn install --frozen-lockfile
+      - name: Lint
+        run: yarn nx lint
+      - name: Test
+        run: yarn nx test
+      - name: Build
+        run: yarn nx build 
