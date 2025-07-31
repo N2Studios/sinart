@@ -1,7 +1,8 @@
 import { readFile } from 'fs/promises';
 import { createHash } from 'crypto';
 
-// Mock IPFS implementation
+// Mock IPFS implementation for now
+// TODO: Configure proper Infura IPFS with project ID
 const mockIPFS = {
   add: async (file, options) => {
     const content = file.toString();
@@ -22,6 +23,7 @@ async function publishToIPFS() {
     // eslint-disable-next-line no-console
     console.log(`IPFS CID: ${result.cid.toString()}`);
     console.log(`Mock IPFS URL: https://ipfs.io/ipfs/${result.cid.toString()}`);
+    console.log('Note: Using mock IPFS. Configure Infura project ID for real IPFS.');
     return result.cid.toString();
   } catch (error) {
     // eslint-disable-next-line no-console
